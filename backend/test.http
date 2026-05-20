@@ -1,0 +1,168 @@
+### ===============================
+### USER REGISTRATION
+### ===============================
+
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+  "name": "koshika",
+  "email": "koshika@example.com",
+  "password": "charan"
+}
+
+
+### ===============================
+### USER LOGIN
+### ===============================
+
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+  "email": "charan1@example.com",
+  "password": "charan"
+}
+
+
+### ===============================
+### LOGOUT
+### ===============================
+
+POST http://localhost:4000/common-api/logout
+
+
+
+### ===============================
+### GET ALL ARTICLES
+### ===============================
+
+GET http://localhost:4000/user-api/articles
+
+
+
+### ===============================
+### ADD COMMENT TO ARTICLE
+### ===============================
+
+POST http://localhost:4000/user-api/articles/ARTICLE_ID/comments
+Content-Type: application/json
+
+{
+  "comment": "Great article!"
+}
+
+
+
+### ===============================
+### AUTHOR REGISTRATION
+### ===============================
+
+POST http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+  "name": "charan",
+  "email": "charan1@example.com",
+  "password": "charan"
+}
+
+
+
+### ===============================
+### AUTHOR LOGIN
+### ===============================
+
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+  "email": "charan@example.com",
+  "password": "charan"
+}
+
+
+
+### ===============================
+### CREATE ARTICLE
+### ===============================
+
+POST http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+  "title": "My First Article",
+  "content": "This is my first article content",
+  "category": "Technology"
+}
+
+
+
+### ===============================
+### UPDATE ARTICLE
+### ===============================
+
+PUT http://localhost:4000/author-api/articles/ARTICLE_ID
+Content-Type: application/json
+
+{
+  "title": "Updated Article",
+  "content": "Updated content",
+  "category": "Technology"
+}
+
+
+
+### ===============================
+### DELETE ARTICLE
+### ===============================
+
+DELETE http://localhost:4000/author-api/articles/ARTICLE_ID
+
+
+
+### ===============================
+### GET ARTICLES BY AUTHOR
+### ===============================
+
+GET http://localhost:4000/author-api/articles/AUTHOR_ID
+
+
+
+### ===============================
+### ADMIN LOGIN
+### ===============================
+
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin"
+}
+
+
+
+### ===============================
+### ADMIN BLOCK USER
+### ===============================
+
+PUT http://localhost:4000/admin-api/blockUser
+Content-Type: application/json
+
+{
+  "userId": "USER_ID"
+}
+
+
+
+### ===============================
+### ADMIN UNBLOCK USER
+### ===============================
+
+PUT http://localhost:4000/admin-api/unblockUser
+Content-Type: application/json
+
+{
+  "userId": "USER_ID"
+}
