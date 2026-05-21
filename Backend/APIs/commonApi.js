@@ -1,5 +1,5 @@
 import express from 'express'
-import { authenticateUser } from '../services/authService.js';
+import { authenticateUser } from '../Services/authService.js';
 import { verifyToken } from '../middlewares/verifyToken.js';
 import UserTypeModel from '../models/userModel.js';
 import bcrypt from 'bcrypt';

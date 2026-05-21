@@ -1,5 +1,5 @@
 import express from 'express'
-import {register} from '../services/authService.js'
+import {register} from '../Services/authService.js'
 import {verifyToken} from '../middlewares/verifyToken.js'
 import {checkAuthor} from '../middlewares/checkAuthor.js'
 import ArticleModel from '../models/ArticleModel.js'
