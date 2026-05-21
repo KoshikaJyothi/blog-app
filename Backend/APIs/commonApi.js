@@ -1,5 +1,5 @@
 import express from 'express'
-import { authenticate } from '../services/ourServices.js';
+import { authenticateUser } from '../services/authService.js';
 import { verifyToken } from '../middlewares/verifyToken.js';
 import UserTypeModel from '../models/userModel.js';
 import bcrypt from 'bcrypt';
@@ -23,7 +23,7 @@ commonApp.post('/login',async(req,res)=>{
         if(!usercred.email || !usercred.password){
             return res.status(400).json({message:"Email and password are required"})
         }
-        let {token,user}=await authenticate(usercred)
+        let {token,user}=await authenticateUser(usercred)
         res.cookie("token",token,getCookieOptions())
         res.status(200).json({message:"login success",payload:{...user,token:token}})
     }catch(err){
