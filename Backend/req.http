@@ -1,0 +1,128 @@
+###GET all articles
+GET http://localhost:4000/user-api/articles
+
+
+###Register user
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "firstName":"mahesh",
+    "lastName":"user",
+    "email":"mahesh@gmail.com",
+    "password":"12345",
+    "profileImageUrl":"https://example.com/profile.jpg"
+}
+
+
+###Login user
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+    "email":"mahesh@gmail.com",
+    "password":"12345"
+}
+
+
+###Add comment to an article
+PUT http://localhost:4000/user-api/articles
+Content-Type: application/json
+
+{
+    "user":"69ae859db60e9aca03ff5c8a",
+    "articleId":"69896f8df663b485cf5cd99b",
+   "comment": "My name is mahesh"
+}
+
+
+### Author
+POST http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+   "firstName":"test",
+   "lastName":"author",
+   "email":"t@gmail.com",
+   "password":"12345",
+   "profileImageUrl":"https://example.com/profile.jpg"
+}
+
+
+### Create Article
+POST http://localhost:4000/author-api/articles
+Content-Type: application/json
+
+{
+    "author":"6989aef2a430a417c47c44bd",
+    "title":"mern stack",
+    "content":"middle ware is used to check the author is active",
+    "category":"web development"
+}
+
+
+###Edit articles
+PUT http://localhost:4000/author-api/articles/6984b9b6c858d171ca8c9677/6984b8af21d170476322532d
+Content-Type: application/json
+
+{
+    "title":"Article 3",
+    "content":"Content 3",
+    "category":"Category 3"
+}
+
+
+### Articles read by id
+GET http://localhost:4000/author-api/articles/698966252ff6663baf3bd74f
+
+
+###Login author
+POST http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "email":"aut@12345",
+    "password":"12345"
+}
+
+
+###Login admin
+POST http://localhost:4000/author-api/login
+Content-Type: application/json
+
+{
+    "email":"auto@12345",
+    "password":"369963"
+}
+
+
+###Logout author
+GET http://localhost:4000/common-api/logout
+
+###block user
+PUT http://localhost:4000/admin-api/block/6989aef2a430a417c47c44bd
+
+###unblock user
+PUT http://localhost:4000/admin-api/unblock/6989aef2a430a417c47c44bd
+
+###change password
+PUT http://localhost:4000/common-api/change-password
+Content-Type: application/json
+
+{
+    "email":"auto@12345",
+    "currentPassword":"369963",
+    "newPassword":"369963"
+}
+
+
+###Soft delete article
+PATCH http://localhost:4000/author-api/articles/69896f8df663b485cf5cd99b/status
+Content-Type: application/json
+
+{
+    "isArticleActive":false
+}
+
+//fix the author api
+
