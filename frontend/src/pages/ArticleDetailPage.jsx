@@ -132,8 +132,14 @@ export const ArticleDetailPage = () => {
             {article.comments.map((cmt, idx) => (
               <Card key={idx} className="p-4">
                 <p className="text-gray-700">{cmt.comment}</p>
-            
-                <p className="text-sm text-gray-500 mt-2">User ID: {cmt.username}</p>
+                {cmt.userId && (
+                  <div className="flex items-center gap-2 mt-3">
+                    {cmt.userId.profileimgurl && (
+                      <img src={cmt.userId.profileimgurl} alt={cmt.userId.name} className="w-5 h-5 rounded-full" />
+                    )}
+                    <p className="text-sm text-gray-600 font-semibold">{cmt.userId.name}</p>
+                  </div>
+                )}
               </Card>
             ))}
           </div>

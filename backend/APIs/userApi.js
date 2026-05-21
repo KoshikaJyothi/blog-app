@@ -55,7 +55,8 @@ userApp.post(
 userApp.get('/articles', async (req, res) => {
   try {
     const articles = await ArticleModel.find({ isArticleActive: true })
-      .populate('author', 'name email profileimgurl');
+      .populate('author', 'name email profileimgurl')
+      .populate('comments.userId', 'name profileimgurl');
     return res.status(200).json({ articles });
   } catch (error) {
     return res.status(500).json({ message: error.message });
