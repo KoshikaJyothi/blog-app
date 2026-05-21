@@ -17,7 +17,7 @@ const app = express()
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5173',
-  'https://blogappfrontend-delta.vercel.app',
+  'https://blog-app-kappa-murex.vercel.app/',
   process.env.FRONTEND_URL
 ].filter(Boolean)
 
