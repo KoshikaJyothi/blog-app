@@ -13,10 +13,11 @@ commonApp.post('/login',async(req,res)=>{
             return res.status(400).json({message:"Email and password are required"})
         }
         let {token,user}=await authenticate(usercred)
+        const isProduction = process.env.NODE_ENV === 'production'
         res.cookie("token",token,{
              httpOnly: true,     
-          secure: false,      
-          sameSite: "lax"
+          secure: isProduction,      
+          sameSite: isProduction ? "none" : "lax"
         })
         res.status(200).json({message:"login success",payload:{...user,token:token}})
     }catch(err){
@@ -24,11 +25,12 @@ commonApp.post('/login',async(req,res)=>{
     }
 })
 commonApp.post('/logout',verifyToken,(req,res)=>{
+    const isProduction = process.env.NODE_ENV === 'production'
     res.clearCookie('token',
         {
             httpOnly: true,
-            secure: false,
-            sameSite:'lax'
+            secure: isProduction,
+            sameSite: isProduction ? 'none' : 'lax'
         }
     )
     let role =req.user.role

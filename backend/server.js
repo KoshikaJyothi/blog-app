@@ -18,7 +18,8 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5173',
   'https://blog-app-kappa-murex.vercel.app',
-  process.env.FRONTEND_URL
+  process.env.FRONTEND_URL,
+  'https://blog-app-qkvn.onrender.com'
 ].filter(Boolean)
 
 app.use(cors({
