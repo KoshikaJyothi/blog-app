@@ -1,9 +1,9 @@
 import express from 'express'
 import {register} from '../Services/authService.js'
-import {verifyToken} from '../middlewares/verifyToken.js'
-import {checkAuthor} from '../middlewares/checkAuthor.js'
-import ArticleModel from '../models/ArticleModel.js'
-import UserTypeModel from '../models/userModel.js'
+import {verifyToken} from '../Middlewares/verifyToken.js'
+import {checkAuthor} from '../Middlewares/checkAuthor.js'
+import ArticleModel from '../Models/ArticleModel.js'
+import UserTypeModel from '../Models/userModel.js'
 import upload from '../config/Multer.js'
 import { uploadToCloudinary } from '../config/CloudinaryUpload.js'
 import cloudinary from '../config/Cloudinary.js'
@@ -118,6 +118,10 @@ authorApp.delete('/articles/:id',verifyToken,checkAuthor,async(req,res)=>{
   res.status(200).json({message:"article deleted",article})
  }catch(err){
   res.status(err.status || 500).json({message:err.message})
+ }
+})
+
+export default authorApp
  }
 })
 

@@ -1,6 +1,5 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import { connect } from 'mongoose'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -44,16 +43,18 @@ app.use((err,req,res,next)=>{
     res.status(err.status || 500).json({message:err.message || "An internal server error occurred."})
 })
 
-const connectDB=async()=>{
-   try{ await connect(process.env.DB_URL)//process.env is used to access the environment variables
-console.log("Connected to DB")
-//start http server
-app.listen(process.env.PORT,()=>{
-    console.log(`Server is running on port ${process.env.PORT}`)
-})
-}catch(error){
-    console.log(error)
-}
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.DB_URL)
+    console.log("Connected to DB")
+    //start http server
+    app.listen(process.env.PORT, () => {
+      console.log(`Server is running on port ${process.env.PORT}`)
+    })
+  } catch (error) {
+    console.error("Database connection failed:", error)
+    process.exit(1)
+  }
 }
 
 connectDB()

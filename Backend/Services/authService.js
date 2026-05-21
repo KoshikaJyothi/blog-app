@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
-import User from '../Models/UserModel.js'
-import {config} from 'dotenv'
-config()
+import User from '../Models/userModel.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const register = async (userData) => {
    //create document

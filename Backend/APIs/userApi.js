@@ -1,7 +1,7 @@
 import express from 'express';
 import { register } from '../Services/authService.js';
-import { verifyToken } from '../middlewares/verifyToken.js';
-import ArticleModel from '../models/ArticleModel.js';
+import { verifyToken } from '../Middlewares/verifyToken.js';
+import ArticleModel from '../Models/ArticleModel.js';
 import upload from '../config/Multer.js';
 import { uploadToCloudinary } from '../config/CloudinaryUpload.js';
 import cloudinary from '../config/Cloudinary.js';

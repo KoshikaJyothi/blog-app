@@ -1,6 +1,6 @@
 import express from 'express'
-import {verifyToken} from '../middlewares/verifyToken.js'
-import UserTypeModel from '../models/userModel.js'
+import {verifyToken} from '../Middlewares/verifyToken.js'
+import UserTypeModel from '../Models/userModel.js'
 
 const adminApp = express.Router()
 
