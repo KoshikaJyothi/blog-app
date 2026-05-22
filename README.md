@@ -61,14 +61,7 @@ cd backend
 npm install
 npm start
 ```
-
-Create a `.env` file inside backend folder:
-
-```env
-PORT=4000
-DB_URL=ongodb+srv://23eg105q61_db_user:NKj79YEAgRnFPj77@cluster0.6mhgrbu.mongodb.net/blog-app?retryWrites=true&w=majority
-
-```
+``
 
 ---
 
